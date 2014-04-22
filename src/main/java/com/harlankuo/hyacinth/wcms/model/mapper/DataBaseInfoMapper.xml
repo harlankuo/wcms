@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.harlankuo.hyacinth.wcms.model.mapper.DataBaseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.harlankuo.hyacinth.wcms.model.DataBaseInfo">
+    <id column="baseinfo_id" jdbcType="INTEGER" property="baseinfoId" />
+    <result column="baseinfo_name" jdbcType="VARCHAR" property="baseinfoName" />
+    <result column="baseinfo_url" jdbcType="VARCHAR" property="baseinfoUrl" />
+    <result column="baseinfo_desc" jdbcType="VARCHAR" property="baseinfoDesc" />
+    <result column="baseinfo_user_id" jdbcType="INTEGER" property="baseinfoUserId" />
+    <result column="baseinfo_isdelete" jdbcType="INTEGER" property="baseinfoIsdelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    baseinfo_id, baseinfo_name, baseinfo_url, baseinfo_desc, baseinfo_user_id, baseinfo_isdelete
+  </sql>
+  <select id="selectByExample" parameterType="com.harlankuo.hyacinth.wcms.model.DataBaseInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_data_baseinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_data_baseinfo
+    where baseinfo_id = #{baseinfoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_data_baseinfo
+    where baseinfo_id = #{baseinfoId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.harlankuo.hyacinth.wcms.model.DataBaseInfoExample">
+    delete from t_data_baseinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.harlankuo.hyacinth.wcms.model.DataBaseInfo">
+    insert into t_data_baseinfo (baseinfo_id, baseinfo_name, baseinfo_url, 
+      baseinfo_desc, baseinfo_user_id, baseinfo_isdelete
+      )
+    values (#{baseinfoId,jdbcType=INTEGER}, #{baseinfoName,jdbcType=VARCHAR}, #{baseinfoUrl,jdbcType=VARCHAR}, 
+      #{baseinfoDesc,jdbcType=VARCHAR}, #{baseinfoUserId,jdbcType=INTEGER}, #{baseinfoIsdelete,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.harlankuo.hyacinth.wcms.model.DataBaseInfo">
+    insert into t_data_baseinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="baseinfoId != null">
+        baseinfo_id,
+      </if>
+      <if test="baseinfoName != null">
+        baseinfo_name,
+      </if>
+      <if test="baseinfoUrl != null">
+        baseinfo_url,
+      </if>
+      <if test="baseinfoDesc != null">
+        baseinfo_desc,
+      </if>
+      <if test="baseinfoUserId != null">
+        baseinfo_user_id,
+      </if>
+      <if test="baseinfoIsdelete != null">
+        baseinfo_isdelete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="baseinfoId != null">
+        #{baseinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="baseinfoName != null">
+        #{baseinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="baseinfoUrl != null">
+        #{baseinfoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="baseinfoDesc != null">
+        #{baseinfoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="baseinfoUserId != null">
+        #{baseinfoUserId,jdbcType=INTEGER},
+      </if>
+      <if test="baseinfoIsdelete != null">
+        #{baseinfoIsdelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.harlankuo.hyacinth.wcms.model.DataBaseInfoExample" resultType="java.lang.Integer">
+    select count(*) from t_data_baseinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_data_baseinfo
+    <set>
+      <if test="record.baseinfoId != null">
+        baseinfo_id = #{record.baseinfoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.baseinfoName != null">
+        baseinfo_name = #{record.baseinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseinfoUrl != null">
+        baseinfo_url = #{record.baseinfoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseinfoDesc != null">
+        baseinfo_desc = #{record.baseinfoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baseinfoUserId != null">
+        baseinfo_user_id = #{record.baseinfoUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.baseinfoIsdelete != null">
+        baseinfo_isdelete = #{record.baseinfoIsdelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_data_baseinfo
+    set baseinfo_id = #{record.baseinfoId,jdbcType=INTEGER},
+      baseinfo_name = #{record.baseinfoName,jdbcType=VARCHAR},
+      baseinfo_url = #{record.baseinfoUrl,jdbcType=VARCHAR},
+      baseinfo_desc = #{record.baseinfoDesc,jdbcType=VARCHAR},
+      baseinfo_user_id = #{record.baseinfoUserId,jdbcType=INTEGER},
+      baseinfo_isdelete = #{record.baseinfoIsdelete,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.harlankuo.hyacinth.wcms.model.DataBaseInfo">
+    update t_data_baseinfo
+    <set>
+      <if test="baseinfoName != null">
+        baseinfo_name = #{baseinfoName,jdbcType=VARCHAR},
+      </if>
+      <if test="baseinfoUrl != null">
+        baseinfo_url = #{baseinfoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="baseinfoDesc != null">
+        baseinfo_desc = #{baseinfoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="baseinfoUserId != null">
+        baseinfo_user_id = #{baseinfoUserId,jdbcType=INTEGER},
+      </if>
+      <if test="baseinfoIsdelete != null">
+        baseinfo_isdelete = #{baseinfoIsdelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where baseinfo_id = #{baseinfoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.harlankuo.hyacinth.wcms.model.DataBaseInfo">
+    update t_data_baseinfo
+    set baseinfo_name = #{baseinfoName,jdbcType=VARCHAR},
+      baseinfo_url = #{baseinfoUrl,jdbcType=VARCHAR},
+      baseinfo_desc = #{baseinfoDesc,jdbcType=VARCHAR},
+      baseinfo_user_id = #{baseinfoUserId,jdbcType=INTEGER},
+      baseinfo_isdelete = #{baseinfoIsdelete,jdbcType=INTEGER}
+    where baseinfo_id = #{baseinfoId,jdbcType=INTEGER}
+  </update>
+
+</mapper>
