@@ -24,10 +24,28 @@
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
-	<bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 
 		<property name="configLocation" value="classpath:/mybatis/SqlMapConfig.xml" />
+		 -->
 		<property name="dataSource" ref="DataSource" />
-	</bean>              <!-- 配置事务管理器 -->
+		<property name="mapperLocations" value="classpath*:com/harlankuo/hyacinth/wcms/model/mapper/*Mapper.xml"/>
+	</bean>
+	
+		<!--   使用SqlSessionTemplate-->
+		<!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"> 
+	      <constructor-arg index="0" ref="sqlSessionFactory" /> 
+	     	 如果想要进行批量操作可加入这个属性 
+	      <constructor-arg index="1" value="BATCH" /> 
+		</bean> -->
+	 
+	
+	<!-- 使用SqlSessionDaoSupport 需要注入sqlSessionFactory  -->
+	<bean id="baseDaoImpl" class="com.harlankuo.hyacinth.wcms.dao.impl.BaseDaoImpl">
+       <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
+	 <!-- 配置事务管理器 -->
 	<bean id="TransactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="DataSource" />

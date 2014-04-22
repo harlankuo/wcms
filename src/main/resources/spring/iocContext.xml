@@ -15,8 +15,8 @@
                      http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
                      http://www.springframework.org/schema/mvc  
                      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd"> 
-
-<!-- 数据映射器类  mapper bean -->  
+                     	
+	<!-- 数据映射器类  mapper bean -->  
 	
 	<!-- 单独配置一个Mapper； 这种模式就是得给每个mapper接口配置一个bean -->
     <!-- 
@@ -24,18 +24,14 @@
         <property name="mapperInterface" value="com.hoo.mapper.AccountMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
     </bean> 
+    -->
     
-    <bean id="companyMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
-        <property name="mapperInterface" value="com.hoo.mapper.CompanyMapper" />
-        <property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
-    </bean>
-     --> 
     
-    <!-- 通过扫描的模式，扫描目录在com/hoo/mapper目录下，所有的mapper都继承SqlMapper接口的接口， 这样一个bean就可以了--> 
+    <!-- 通过扫描的模式，扫描目录在mapper目录下，所有的mapper都继承SqlMapper接口的接口， 这样一个bean就可以了--> 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.harlankuo.hyacinth.wcms.model.mapper"/>
-       <!--  <property name="markerInterface" value="com.hoo.mapper.SqlMapper"/> -->
-        <property name="sqlSessionFactoryBeanName" value="SqlSessionFactory"/>
+        <property name="markerInterface" value="com.harlankuo.hyacinth.wcms.model.mapper.SqlMapper"/> 
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     
 </beans>
