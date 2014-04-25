@@ -28,20 +28,60 @@
 			</value>
 		</property>
 	</bean>
-	<!-- 注解支持 -->
+	<!-- 自动注解支持 -->
 	<mvc:annotation-driven />
 
 	<!--不拦截静态的文件，如jpg,js,css -->
 	<mvc:resources mapping="/static/**" location="/static/" />
+
+	<!-- 配置登录注解interceptor, 从而过滤所有的spring-mvc方法 -->
+	<mvc:interceptors>
+		<!-- <mvc:interceptor> <mvc:mapping path="/views/*"/> <bean class=""></bean> 
+			</mvc:interceptor> -->
+		<bean
+			class="com.harlankuo.hyacinth.wcms.web.interceptor.LoginAnnotationInterceptor">
+			<!-- 第一种在自定义的过滤器中过滤资源路径 -->
+			<property name="uncheckUrls">
+				<list>
+					<value>/static/</value>
+				</list>
+			</property>
+			<!-- 第二种在自定义的过滤器中过滤Handler -->
+			<property name="uncheckHandlers">
+				<list>
+					<value>org.springframework.web.servlet.resource.ResourceHttpRequestHandler</value>
+				</list>
+			</property>
+		</bean>
+		<bean
+			class="com.harlankuo.hyacinth.wcms.web.interceptor.AuthorityAnnotationInterceptor">
+			<!-- 第一种在自定义的过滤器中过滤资源路径 -->
+			<property name="uncheckUrls">
+				<list>
+					<value>/static/</value>
+				</list>
+			</property>
+			<!-- 第二种在自定义的过滤器中过滤Handler -->
+			<property name="uncheckHandlers">
+				<list>
+					<value>org.springframework.web.servlet.resource.ResourceHttpRequestHandler</value>
+				</list>
+			</property>
+		</bean>
+	</mvc:interceptors>
+
+	<!-- 配置首页 -->
+	<!-- <mvc:view-controller path="/" view-name="login" /> -->
 
 	<!-- 对包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
 	<context:component-scan base-package="*" />
 	<!-- 允许定义过滤器将基包下的某些类纳入或排除 <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/> -->
 	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 <bean class="org.springframework.web.portlet.mvc.annotation.AnnotationMethodHandlerAdapter"/> -->
 
-	<!-- 支持JSON数据格式 -->
 	<bean
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+	</bean>
+	<!-- 支持JSON数据格式 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
@@ -60,5 +100,13 @@
 		</property>
 	</bean>
 
+	<!-- 处理静态资源 -->
+	<!-- <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> 
+		<property name="urlMap"> <map> <entry key="/static/**" value-ref="imageResource"/> 
+		</map> </property> </bean> <bean id="imageResource" class="org.springframework.web.servlet.resource.ResourceHttpRequestHandler"> 
+		<property name="locations"> <list> <value>/static/</value> </list> </property> 
+		</bean> <bean id="httpHandlerAdapter" class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter" 
+		/> -->
+	<!-- 处理静态资源 end -->
 
 </beans>
