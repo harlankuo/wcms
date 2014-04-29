@@ -97,8 +97,6 @@ public class LoginAnnotationInterceptor extends HandlerInterceptorAdapter {
 		}*/
 
 		//第二种在自定义的过滤器中过滤handler
-		System.out.println(handler.getClass().getName());
-		System.out.println(uncheckHandlers.contains(handler.getClass().getName()));
 		if(uncheckHandlers.contains(handler.getClass().getName())){
 			return true;
 		}
