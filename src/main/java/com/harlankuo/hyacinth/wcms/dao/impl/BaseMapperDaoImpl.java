@@ -36,6 +36,8 @@ public class BaseMapperDaoImpl<T> extends SqlSessionTemplate implements BaseMapp
         this.mapperClass = mapperClass;
     }
  
+    
+    
     private BaseSqlMapper<T> getMapper() {
         return this.getMapper(mapperClass);
     }
@@ -64,18 +66,10 @@ public class BaseMapperDaoImpl<T> extends SqlSessionTemplate implements BaseMapp
         return flag;
     }
  
-    public T get(T entity) throws Exception {
-        return this.getMapper().get(entity);
-    }
- 
-    public List<T> getAll() throws Exception {
-        return this.getMapper().getList(null);
-    }
- 
     public boolean remove(T entity) throws Exception {
         boolean flag = false;
         try {
-            this.getMapper().remvoe(entity);
+            this.getMapper().remove(entity);
             flag = true;
         } catch (Exception e) {
             flag = false;
@@ -83,4 +77,13 @@ public class BaseMapperDaoImpl<T> extends SqlSessionTemplate implements BaseMapp
         }
         return flag;
     }
+    
+    public T getSingle(T entity) throws Exception {
+        return this.getMapper().getSingle(entity);
+    }
+ 
+    public List<T> getList(T entity) throws Exception {
+        return this.getMapper().getList(entity);
+    }
+ 
 }

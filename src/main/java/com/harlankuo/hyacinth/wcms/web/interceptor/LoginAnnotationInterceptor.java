@@ -26,7 +26,9 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import com.alibaba.fastjson.JSON;
 import com.harlankuo.hyacinth.wcms.Annotation.Login;
+import com.harlankuo.hyacinth.wcms.entity.ReturnValue;
 import com.harlankuo.hyacinth.wcms.model.SysUser;
 import com.harlankuo.hyacinth.wcms.web.ResultTypeEnum;
 import com.harlankuo.hyacinth.wcms.web.utils.SessionHelper;
@@ -111,25 +113,33 @@ public class LoginAnnotationInterceptor extends HandlerInterceptorAdapter {
 
 		HttpSession session = request.getSession();
 		// 取得session中的用户信息, 以便判断是否登录了系统
-		SysUser sysUser = (SysUser) session
-				.getAttribute(SessionHelper.UserHandler);
+		SysUser sysUser = (SysUser) session.getAttribute(SessionHelper.UserHandler);
 
 		if (null == sysUser) {
 			// 需要登录
 			if (login.value() == ResultTypeEnum.page) {
 				// 传统页面的登录
-				request.getRequestDispatcher(
-						"/login.jsp?oprst=false&opmsg=请登录!").forward(request,
-						response);
+				/*forward与redirect的区别
+				redirect是针对document root的
+				forward是针对context root的
+				forward可以共享信息比如：response,request,session,redirect不能共享信息
+				forward不可以改变地址栏的地址，redirect可以改变*/
+				//request.getRequestDispatcher("/login").forward(request,response);
+				response.sendRedirect((request.getContextPath()=="/" || request.getContextPath()==""?"":request.getContextPath())+"/login");
 			} else if (login.value() == ResultTypeEnum.json) {
 				// ajax页面的登录
 				response.setCharacterEncoding("utf-8");
 				response.setContentType("text/html;charset=UTF-8");
 				OutputStream out = response.getOutputStream();
-				PrintWriter pw = new PrintWriter(new OutputStreamWriter(out,
-						"utf-8"));
+				PrintWriter pw = new PrintWriter(new OutputStreamWriter(out,"utf-8"));
 				// 返回json格式的提示
-				pw.println("{\"result\":false,\"code\":11,\"errorMessage\":\"您未登录,请先登录\"}");
+				ReturnValue returnValue=new ReturnValue();
+				returnValue.setSuccess(false);
+				returnValue.setUrl("login");
+				returnValue.setMessage("您还未登录...");
+				returnValue.setDataMap(null);
+				returnValue.setError("");
+				pw.println(JSON.toJSONString(returnValue));
 				pw.flush();
 				pw.close();
 			}
