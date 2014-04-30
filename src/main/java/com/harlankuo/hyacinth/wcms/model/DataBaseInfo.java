@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 
+import com.harlankuo.hyacinth.wcms.entity.BaseDomain;
+
 @Entity
-public class DataBaseInfo implements Serializable {
+public class DataBaseInfo extends BaseDomain {
 	private static final long serialVersionUID = -7970848646314840509L;
     private Integer baseinfoId;
 

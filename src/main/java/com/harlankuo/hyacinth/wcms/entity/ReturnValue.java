@@ -24,7 +24,7 @@ import javax.persistence.Entity;
  * 修改备注：@version 1.0.0
  */
 @Entity
-public class ReturnValue implements Serializable {
+public class ReturnValue extends BaseDomain{
 	private static final long serialVersionUID = -7970848646314840509L;
 	private Boolean success;
 	private String url;

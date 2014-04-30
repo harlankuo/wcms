@@ -1,13 +1,14 @@
 package com.harlankuo.hyacinth.wcms.model;
 
 import java.util.Date;
-
 import java.io.Serializable;
 
 import javax.persistence.Entity;
 
+import com.harlankuo.hyacinth.wcms.entity.BaseDomain;
+
 @Entity
-public class SysUser implements Serializable {
+public class SysUser extends BaseDomain {
 	private static final long serialVersionUID = -7970848646314840509L;
     private Integer userId;
 
