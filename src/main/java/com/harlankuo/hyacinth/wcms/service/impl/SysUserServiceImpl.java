@@ -9,7 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.harlankuo.hyacinth.wcms.dao.SysUserDao;
-import com.harlankuo.hyacinth.wcms.exception.ServiceException;
+import com.harlankuo.hyacinth.wcms.exception.BusinessException;
 import com.harlankuo.hyacinth.wcms.model.SysUser;
 import com.harlankuo.hyacinth.wcms.service.SysUserService;
 
@@ -24,10 +24,10 @@ public class SysUserServiceImpl<T extends SysUser> extends BaseMapperServiceImpl
 	* @see com.harlankuo.hyacinth.wcms.service.SysUserService#Login(java.lang.Object)
 	*/
 		
-	public Boolean Login(T entity) throws DataAccessException {
+	public Boolean Login(T entity) throws BusinessException {
 		// TODO Auto-generated method stub
 		if(entity==null){
-			throw new ServiceException("对象参数信息为Empty！");
+			throw new BusinessException("对象参数信息为Empty！");
 		}
 		return sysUserDao.Login(entity);
 	}

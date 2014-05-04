@@ -40,6 +40,9 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
+	<!--***使用.html后缀，一方面用户不能通过URL知道我们采用何种服务端技术，  
+    同时，可骗过搜索引擎，增加被收录的概率 。真正的静态网页可以用.htm,以避免被框架拦截-->  
+
 	<servlet-mapping>
 		<servlet-name>springDispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
@@ -68,4 +71,22 @@
 	<welcome-file-list>
 		<welcome-file>login</welcome-file>
 	</welcome-file-list>
+	
+	<error-page>  
+        <error-code>403</error-code>  
+        <location>/error/403.jsp</location>  
+    </error-page>  
+    <error-page>  
+        <error-code>404</error-code>  
+        <location>/error/404.jsp</location>  
+    </error-page>  
+    <error-page>  
+        <error-code>405</error-code>  
+        <location>/error/405.jsp</location>  
+    </error-page>  
+    <error-page>  
+        <error-code>500</error-code>  
+        <location>/error/500.jsp</location>  
+    </error-page>  
+	
 </web-app>

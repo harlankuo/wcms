@@ -18,7 +18,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.harlankuo.hyacinth.wcms.dao.BaseMapperDao;
-import com.harlankuo.hyacinth.wcms.exception.ServiceException;
+import com.harlankuo.hyacinth.wcms.exception.BusinessException;
 import com.harlankuo.hyacinth.wcms.service.BaseMapperService;
 
 /**
@@ -43,7 +43,7 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	public boolean add(T entity) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
-			throw new ServiceException("对象参数信息为Empty！");
+			throw new BusinessException("对象参数信息为Empty！");
 		}
 		return baseMapperDao.add(entity);
 	}
@@ -56,7 +56,7 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	public boolean edit(T entity) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
-			throw new ServiceException("对象参数信息为Empty！");
+			throw new BusinessException("对象参数信息为Empty！");
 		}
 		return baseMapperDao.edit(entity);
 	}
@@ -69,7 +69,7 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	public boolean remove(T entity) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
-			throw new ServiceException("对象参数信息为Empty！");
+			throw new BusinessException("对象参数信息为Empty！");
 		}
 		return baseMapperDao.remove(entity);
 	}
@@ -82,7 +82,7 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	public T getSingle(T entity) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
-			throw new ServiceException("对象参数信息为Empty！");
+			throw new BusinessException("对象参数信息为Empty！");
 		}
 		return baseMapperDao.getSingle(entity);
 	}
@@ -95,7 +95,7 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	public List<T> getList(T entity) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
-			throw new ServiceException("对象参数信息为Empty！");
+			throw new BusinessException("对象参数信息为Empty！");
 		}
 		return baseMapperDao.getList(entity);
 	}

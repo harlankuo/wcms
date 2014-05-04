@@ -31,6 +31,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.alibaba.fastjson.JSON;
 import com.harlankuo.hyacinth.wcms.Annotation.Login;
 import com.harlankuo.hyacinth.wcms.entity.ReturnValue;
+import com.harlankuo.hyacinth.wcms.exception.BusinessException;
+import com.harlankuo.hyacinth.wcms.exception.SystemException;
 import com.harlankuo.hyacinth.wcms.model.SysUser;
 import com.harlankuo.hyacinth.wcms.service.SysUserService;
 import com.harlankuo.hyacinth.wcms.web.ResultTypeEnum;
@@ -63,32 +65,53 @@ public class LoginController {
 	
 	@RequestMapping(value="/login2",method=RequestMethod.POST)
 	@ResponseBody
-	public String Login(SysUser sysUser){
+	public String Login(SysUser sysUser) throws BusinessException {
 		ReturnValue returnValue=new ReturnValue();
-		if(sysUserService.Login(sysUser)){
-			ModelMap modelMap =new ModelMap();
-			modelMap.addAttribute(SessionHelper.UserHandler, sysUser);
-			returnValue.setSuccess(true);
-			returnValue.setUrl("admin/index");
-			returnValue.setMessage("登录成功！");
-			returnValue.setDataMap(null);
-			returnValue.setError("");
-		}else{
+		try{
+			if(sysUserService.Login(sysUser)){
+				ModelMap modelMap =new ModelMap();
+				modelMap.addAttribute(SessionHelper.UserHandler, sysUser);
+				returnValue.setSuccess(true);
+				returnValue.setUrl("admin/index");
+				returnValue.setMessage("登录成功！");
+				returnValue.setDataMap(null);
+				returnValue.setError("");
+			}else{
+				returnValue.setSuccess(false);
+				returnValue.setUrl("login");
+				returnValue.setMessage("用户名和密码不正确！");
+				returnValue.setDataMap(null);
+				returnValue.setError("");
+			}
+		}catch(Exception e){
 			returnValue.setSuccess(false);
 			returnValue.setUrl("login");
-			returnValue.setMessage("用户名和密码不正确！");
+			returnValue.setMessage("出错了。。。");
 			returnValue.setDataMap(null);
-			returnValue.setError("");
+			returnValue.setError(e.getMessage());
 		}
 		return JSON.toJSONString(returnValue);
 	}
 	
 	@Login(ResultTypeEnum.page)
 	@RequestMapping(value="/logout")
-	public String Logout(SessionStatus sessionStatus, ModelMap modelMap) {
-		//HttpSession session=request.getSession();
+	public String Logout(SessionStatus sessionStatus, ModelMap modelMap) throws BusinessException {
 		modelMap.remove(SessionHelper.UserHandler);
 		sessionStatus.setComplete();
 		return "redirect:login";
+	}
+	
+	@RequestMapping(value = "/SystemException")
+	public void TestSystemException() {
+		throw new SystemException("this is system error ");
+	}
+
+	/**
+	 * @throws com.harlankuo.hyacinth.wcms.exception.BusinessException
+	 * 
+	 */
+	@RequestMapping(value = "/BusinessException")
+	public void TestBusinessException() throws BusinessException {
+		throw new BusinessException("this is Business error ");
 	}
 }
