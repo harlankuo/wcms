@@ -1,4 +1,4 @@
-package com.harlankuo.hyacinth.wcms.utils;
+package com.harlankuo.hyacinth.wcms.web.utils;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,7 +17,7 @@ import org.springframework.util.Assert;
  * PropertyFilter主要记录页面中简单的搜索过滤条件,比Hibernate的Criterion要简单很多.
  * 可按项目扩展其他对比方式如大于、小于及其他数据类型如数字和日期.
  * 
- * @author calvin
+ * @author 
  */
 public class PropertyFilter {
 

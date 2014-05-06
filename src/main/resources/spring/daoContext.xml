@@ -34,7 +34,7 @@
     	</property>
 	</bean>
 
-	<bean id="paginationInterceptor" class="com.harlankuo.hyacinth.wcms.utils.pagination.interceptor.PaginationInterceptor">
+	<bean id="paginationInterceptor" class="com.harlankuo.hyacinth.wcms.pagination.interceptor.PaginationInterceptor">
 	
 	</bean>
 

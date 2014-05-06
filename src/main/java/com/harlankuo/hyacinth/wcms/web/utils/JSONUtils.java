@@ -24,7 +24,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.harlankuo.hyacinth.wcms.utils;
+package com.harlankuo.hyacinth.wcms.web.utils;
 
 import java.lang.reflect.Type;
 import java.sql.Date;

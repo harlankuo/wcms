@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 /**
  * 日期时间处理工具类
- * @author laichendong
+ * @author 
  * @since 2010年2月22日23:09:09
  *
  */

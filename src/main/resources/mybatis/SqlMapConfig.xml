@@ -44,10 +44,10 @@
 	</typeAliases>
 
 	<!--分页拦截插件物理分页  -->
-	<plugins>
+	<!-- <plugins>
 		<plugin
-			interceptor="com.harlankuo.hyacinth.wcms.utils.pagination.interceptor.PaginationInterceptor" />
-	</plugins>
+			interceptor="com.harlankuo.hyacinth.wcms.pagination.interceptor.PaginationInterceptor" />
+	</plugins> -->
 
 	<!-- 指定映射器路径 -->
 	<mappers>

@@ -8,7 +8,7 @@
 * Copyright (c)2014版权所有--harlankuo
 */
 	
-package com.harlankuo.hyacinth.wcms.utils.pagination;
+package com.harlankuo.hyacinth.wcms.pagination;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -105,7 +105,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     
 
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#getPageData()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#getPageData()
      */
     public List<T> getPageData(T entity) {
              List<T> pageList =null;
@@ -137,20 +137,20 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     
 
     /** 
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#getPageIndex()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#getPageIndex()
      */
     public int getPageIndex() {
       return this.pageIndex;
     }
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#isFirstPage()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#isFirstPage()
      */
     public boolean isFirstPage() {
             
             return  this.DEFAULT_PAGE_INDEX ==this.pageIndex;
     }
        /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#isLastPage()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#isLastPage()
      */
     public boolean isLastPage() {
             //当前页索引为总页数时为最后一页
@@ -158,7 +158,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     }        
 
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#getHashNextPage()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#getHashNextPage()
      */
     public boolean getHashNextPage() {
         //当前页索引号小于总页数
@@ -166,7 +166,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     }
 
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#getHashPreviousPage()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#getHashPreviousPage()
      */
     public boolean getHashPreviousPage() {
             //当前页索引号大于默认的初始页号,这里为1
@@ -176,7 +176,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
 
 
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#getPageCount()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#getPageCount()
      */
     public int getPageCount() {
             
@@ -186,7 +186,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
 
 
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#getPageSize()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#getPageSize()
      */
     public int getPageSize() {
             
@@ -194,7 +194,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     }
 
        /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#getPageRows()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#getPageRows()
      */
     public int getPageRows() {
             //当页面大小为-1 时,返回总记录数
@@ -213,7 +213,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     
 
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#getPageFirstRecord()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#getPageFirstRecord()
      */
     public int getPageFirstRecord() {
             
@@ -225,7 +225,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     }
     
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#getPageLastRecord()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#getPageLastRecord()
      */
     public int getPageLastRecord() {
             //页大小为-1时,返回总记录数
@@ -235,7 +235,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
             return this.getPageFirstRecord() + this.getPageRows() ;
     }        
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#gotoFirstPage()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#gotoFirstPage()
      */
     public void gotoFirstPage() {
             this.gotoPage(this.DEFAULT_PAGE_INDEX);
@@ -243,7 +243,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     }
 
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#gotoLastPage()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#gotoLastPage()
      */
     public void gotoLastPage() {
             this.gotoPage(this.getPageCount());
@@ -251,7 +251,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     }
     
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#gotoPreviousPage()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#gotoPreviousPage()
      */
     public void gotoPreviousPage() {
             this.gotoPage(this.getPageIndex() -1);
@@ -259,7 +259,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     }        
 
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#gotoNextPage()
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#gotoNextPage()
      */
     public void gotoNextPage() {
             this.gotoPage(this.getPageIndex() + 1);
@@ -267,7 +267,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
     }
 
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#gotoPage(int)
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#gotoPage(int)
      */
     public void gotoPage(int newPageIndex) {
              if( newPageIndex >= this.DEFAULT_PAGE_INDEX &&  newPageIndex <= this.getPageCount() ) {
@@ -276,7 +276,7 @@ public abstract class AbstractViewPage<T> implements ViewPage<T> {
             
     }
     /**
-     * @see com.harlankuo.hyacinth.wcms.utils.pagination.ViewPage#setPageSize(int)
+     * @see com.harlankuo.hyacinth.wcms.pagination.ViewPage#setPageSize(int)
      */
     public void setPageSize(T entity,int size) {
             if(size < 1) {

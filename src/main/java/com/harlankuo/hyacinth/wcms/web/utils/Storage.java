@@ -1,4 +1,4 @@
-package com.harlankuo.hyacinth.wcms.utils;
+package com.harlankuo.hyacinth.wcms.web.utils;
 
 import java.io.BufferedInputStream;
 import java.io.File;

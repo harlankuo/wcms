@@ -8,7 +8,7 @@
  * Copyright (c)2014版权所有--harlankuo
  */
 
-package com.harlankuo.hyacinth.wcms.utils.pagination.interceptor;
+package com.harlankuo.hyacinth.wcms.pagination.interceptor;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

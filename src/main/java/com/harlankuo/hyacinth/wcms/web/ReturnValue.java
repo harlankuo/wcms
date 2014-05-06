@@ -8,12 +8,14 @@
 * Copyright (c)2014版权所有--harlankuo
 */
 	
-package com.harlankuo.hyacinth.wcms.entity;
+package com.harlankuo.hyacinth.wcms.web;
 
 import java.io.Serializable;
 import java.util.HashMap;
 
 import javax.persistence.Entity;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 /**
  * 类名称：ReturnValue
@@ -24,7 +26,7 @@ import javax.persistence.Entity;
  * 修改备注：@version 1.0.0
  */
 @Entity
-public class ReturnValue extends BaseDomain{
+public class ReturnValue implements Serializable{
 	private static final long serialVersionUID = -7970848646314840509L;
 	private Boolean success;
 	private String url;
@@ -61,6 +63,11 @@ public class ReturnValue extends BaseDomain{
 	}
 	public void setDataMap(HashMap<String, Object> dataMap) {
 		this.dataMap = dataMap;
+	}
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
 	}
 	
 }

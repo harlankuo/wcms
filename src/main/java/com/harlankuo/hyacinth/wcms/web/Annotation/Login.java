@@ -8,7 +8,7 @@
 * Copyright (c)2014版权所有--harlankuo
 */
 	
-package com.harlankuo.hyacinth.wcms.Annotation;
+package com.harlankuo.hyacinth.wcms.web.Annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

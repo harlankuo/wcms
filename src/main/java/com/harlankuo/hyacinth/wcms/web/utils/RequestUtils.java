@@ -1,4 +1,4 @@
-package com.harlankuo.hyacinth.wcms.utils;
+package com.harlankuo.hyacinth.wcms.web.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,21 +10,18 @@ import java.util.TreeMap;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
-
-
-
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
 import org.springframework.util.Assert;
 
 import com.harlankuo.hyacinth.wcms.model.SysUser;
-import com.harlankuo.hyacinth.wcms.utils.PropertyFilter.MatchType;
+import com.harlankuo.hyacinth.wcms.web.utils.PropertyFilter.MatchType;
 
 /**
  * 用于处理HTTP请求的工具类
  *
- * @author Winter Lau
+ * @author
  */
 public class RequestUtils {
     //保存当前会话的用户信息，方便提取

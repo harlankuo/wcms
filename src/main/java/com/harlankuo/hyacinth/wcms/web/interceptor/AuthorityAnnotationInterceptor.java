@@ -26,8 +26,8 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.harlankuo.hyacinth.wcms.Annotation.Authority;
 import com.harlankuo.hyacinth.wcms.model.SysUser;
+import com.harlankuo.hyacinth.wcms.web.Annotation.Authority;
 import com.harlankuo.hyacinth.wcms.web.utils.SessionHelper;
 
 /**

@@ -17,9 +17,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 import com.harlankuo.hyacinth.wcms.model.mapper.SysUserMapper;
+import com.harlankuo.hyacinth.wcms.pagination.AbstractViewPage;
 import com.harlankuo.hyacinth.wcms.service.BaseMapperService;
 import com.harlankuo.hyacinth.wcms.service.impl.BaseMapperServiceImpl;
-import com.harlankuo.hyacinth.wcms.utils.pagination.AbstractViewPage;
 
 /**
  * 类名称：SysUserPagination
@@ -37,7 +37,7 @@ public class SysUserPagination<T> extends AbstractViewPage<T> {
 	
 	/**
 	*(non-Javadoc)
-	* @see com.harlankuo.hyacinth.wcms.utils.pagination.AbstractViewPage#queryTotalRows()
+	* @see com.harlankuo.hyacinth.wcms.pagination.AbstractViewPage#queryTotalRows()
 	*/
 		
 	@Override
@@ -48,7 +48,7 @@ public class SysUserPagination<T> extends AbstractViewPage<T> {
 
 	/**
 	*(non-Javadoc)
-	* @see com.harlankuo.hyacinth.wcms.utils.pagination.AbstractViewPage#queryPageList(int, int)
+	* @see com.harlankuo.hyacinth.wcms.pagination.AbstractViewPage#queryPageList(int, int)
 	*/
 		
 	@Override

@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.harlankuo.hyacinth.wcms.Annotation.Authority;
-import com.harlankuo.hyacinth.wcms.Annotation.Login;
+import com.harlankuo.hyacinth.wcms.web.Annotation.Authority;
+import com.harlankuo.hyacinth.wcms.web.Annotation.Login;
 import com.harlankuo.hyacinth.wcms.web.interceptor.AuthorityType;
 import com.harlankuo.hyacinth.wcms.web.interceptor.ResultTypeEnum;
 import com.harlankuo.hyacinth.wcms.web.utils.AjaxResult;

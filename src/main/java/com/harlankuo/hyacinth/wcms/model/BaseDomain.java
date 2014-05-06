@@ -8,7 +8,7 @@
 * Copyright (c)2014版权所有--harlankuo
 */
 	
-package com.harlankuo.hyacinth.wcms.entity;
+package com.harlankuo.hyacinth.wcms.model;
 
 import java.io.Serializable;
 
@@ -24,6 +24,14 @@ import org.apache.commons.lang.builder.ToStringBuilder;
  */
 
 public class BaseDomain implements Serializable {
+	/**
+	* serialVersionUID:TODO（用一句话描述这个变量表示什么）
+	*
+	* @ 1.0.0
+	*/
+		
+	private static final long serialVersionUID = 1L;
+
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
 	}
