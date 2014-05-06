@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface DataLinkMapper extends BaseSqlMapper {
+public interface DataLinkMapper extends BaseSqlMapper<DataLink> {
     int countByExample(DataLinkExample example);
 
     int deleteByExample(DataLinkExample example);

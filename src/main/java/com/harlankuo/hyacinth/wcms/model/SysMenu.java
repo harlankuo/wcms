@@ -1,7 +1,5 @@
 package com.harlankuo.hyacinth.wcms.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 
 @Entity

@@ -1,11 +1,7 @@
 package com.harlankuo.hyacinth.wcms.service.impl;
 
-import java.util.List;
-
 import javax.annotation.Resource;
-import javax.inject.Inject;
 
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.harlankuo.hyacinth.wcms.dao.SysUserDao;

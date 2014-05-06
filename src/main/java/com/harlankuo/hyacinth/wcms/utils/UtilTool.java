@@ -160,7 +160,7 @@ public class UtilTool {
 	 * @return
 	 */
 	public static String formatLongToTimeStr(Long len) {
-        String str = "";
+        //String str = "";
         int hour = 0;
         int minute = 0;
         int second = 0;

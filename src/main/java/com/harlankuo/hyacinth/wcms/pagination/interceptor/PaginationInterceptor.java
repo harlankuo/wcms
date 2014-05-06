@@ -11,12 +11,8 @@
 package com.harlankuo.hyacinth.wcms.pagination.interceptor;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Properties;
 
-import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
@@ -32,7 +28,6 @@ import org.apache.ibatis.reflection.factory.DefaultObjectFactory;
 import org.apache.ibatis.reflection.factory.ObjectFactory;
 import org.apache.ibatis.reflection.wrapper.DefaultObjectWrapperFactory;
 import org.apache.ibatis.reflection.wrapper.ObjectWrapperFactory;
-import org.apache.ibatis.scripting.defaults.DefaultParameterHandler;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.RowBounds;
 
@@ -51,7 +46,6 @@ public class PaginationInterceptor implements Interceptor {
     private static final ObjectFactory DEFAULT_OBJECT_FACTORY = new DefaultObjectFactory();
     private static final ObjectWrapperFactory DEFAULT_OBJECT_WRAPPER_FACTORY = new DefaultObjectWrapperFactory();
     private static String DEFAULT_PAGE_SQL_ID = ".*PageList$"; // 需要拦截的ID(正则匹配)
-    private String databaseType;// 数据库类型，不同的数据库有不同的分页方法  
     
     public Object intercept(Invocation invocation) throws Throwable {
         StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
@@ -80,7 +74,7 @@ public class PaginationInterceptor implements Interceptor {
         // property在mybatis settings文件内配置
         Configuration configuration = (Configuration) metaStatementHandler.getValue("delegate.configuration");
         
-        Dialect.Type databaseType  = null ;  
+        Dialect.Type databaseType  = null ;  // 数据库类型，不同的数据库有不同的分页方法  
         try {  
             databaseType = Dialect.Type.valueOf(configuration.getVariables().getProperty("dialect" ).toUpperCase());  
         } catch (Exception e){  

@@ -1,7 +1,6 @@
 package com.harlankuo.hyacinth.wcms.model;
 
 import java.util.Date;
-import java.io.Serializable;
 
 import javax.persistence.Entity;
 

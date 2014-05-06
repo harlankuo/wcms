@@ -19,7 +19,6 @@ import org.springframework.stereotype.Component;
 import com.harlankuo.hyacinth.wcms.model.mapper.SysUserMapper;
 import com.harlankuo.hyacinth.wcms.pagination.AbstractViewPage;
 import com.harlankuo.hyacinth.wcms.service.BaseMapperService;
-import com.harlankuo.hyacinth.wcms.service.impl.BaseMapperServiceImpl;
 
 /**
  * 类名称：SysUserPagination

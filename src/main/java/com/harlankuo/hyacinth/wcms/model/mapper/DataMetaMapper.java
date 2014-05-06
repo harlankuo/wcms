@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface DataMetaMapper extends BaseSqlMapper {
+public interface DataMetaMapper extends BaseSqlMapper<DataMeta> {
     int countByExample(DataMetaExample example);
 
     int deleteByExample(DataMetaExample example);

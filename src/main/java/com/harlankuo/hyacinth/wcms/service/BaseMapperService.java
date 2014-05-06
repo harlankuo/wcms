@@ -12,8 +12,6 @@ package com.harlankuo.hyacinth.wcms.service;
 
 import java.util.List;
 
-import org.springframework.dao.DataAccessException;
-
 import com.harlankuo.hyacinth.wcms.model.mapper.BaseSqlMapper;
 
 /**

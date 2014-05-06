@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.harlankuo.hyacinth.wcms.model.mapper.BaseSqlMapper;
 
-@SuppressWarnings({ "unchecked", "unused" })
+@SuppressWarnings({"unused" })
 public interface BaseMapperDao<T> {
     
     public void setMapperClass(Class<? extends BaseSqlMapper> mapperClass);

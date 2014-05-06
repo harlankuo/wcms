@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface SysMenuMapper extends BaseSqlMapper {
+public interface SysMenuMapper extends BaseSqlMapper<SysMenu> {
     int countByExample(SysMenuExample example);
 
     int deleteByExample(SysMenuExample example);

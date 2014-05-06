@@ -1,7 +1,5 @@
 package com.harlankuo.hyacinth.wcms.dao.impl;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,10 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.harlankuo.hyacinth.wcms.dao.SysUserDao;
 import com.harlankuo.hyacinth.wcms.model.SysUser;
-import com.harlankuo.hyacinth.wcms.model.mapper.BaseSqlMapper;
 import com.harlankuo.hyacinth.wcms.model.mapper.SysUserMapper;
 
-@SuppressWarnings("unchecked")
 @Repository
 public class SysUserDaoImpl<T extends SysUser> extends BaseMapperDaoImpl<T> implements SysUserDao<T> {
 

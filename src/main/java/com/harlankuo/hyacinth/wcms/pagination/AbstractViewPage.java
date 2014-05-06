@@ -11,10 +11,8 @@
 package com.harlankuo.hyacinth.wcms.pagination;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import com.harlankuo.hyacinth.wcms.dao.BaseMapperDao;
 import com.harlankuo.hyacinth.wcms.exception.SystemException;
 
 /**
@@ -31,7 +29,7 @@ import com.harlankuo.hyacinth.wcms.exception.SystemException;
  * 修改时间：2014年5月5日 上午9:40:17
  * 修改备注：@version 1.0.0
  */
-
+@SuppressWarnings("unchecked")
 public abstract class AbstractViewPage<T> implements ViewPage<T> {
 	//-----------------------------------------
     //私有静态常量

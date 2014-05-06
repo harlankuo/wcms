@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface DataBaseInfoMapper extends BaseSqlMapper {
+public interface DataBaseInfoMapper extends BaseSqlMapper<DataBaseInfo> {
 	
     int countByExample(DataBaseInfoExample example);
 

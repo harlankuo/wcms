@@ -111,18 +111,17 @@ public class AuthorityAnnotationInterceptor extends HandlerInterceptorAdapter {
 
 		logger.debug("authority", authority.toString());
 
-		HttpSession session = request.getSession();
-		SysUser sysUser = (SysUser) session
-				.getAttribute(SessionHelper.UserHandler);
+		//HttpSession session = request.getSession();
+		//SysUser sysUser = (SysUser) session.getAttribute(SessionHelper.UserHandler);
 		boolean aflag = false;
 
-		for (AuthorityType at : authority.authorityTypes()) {
+		//for (AuthorityType at : authority.authorityTypes()) {
 			/*if (AuthorityHelper.hasAuthority(at.getIndex(),
 					sysUser.getRightContent()) == true) {
 				aflag = true;
 				break;
 			}*/
-		}
+		//}
 
 		if (false == aflag) {
 

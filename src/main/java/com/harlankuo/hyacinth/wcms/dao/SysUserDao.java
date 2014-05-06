@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.harlankuo.hyacinth.wcms.model.SysUser;
 
-@SuppressWarnings({ "unchecked", "unused" })
+@SuppressWarnings({"unused" })
 public interface SysUserDao<T extends SysUser> extends BaseMapperDao<T> {
 	public Boolean Login(T entity) throws DataAccessException;
 }
