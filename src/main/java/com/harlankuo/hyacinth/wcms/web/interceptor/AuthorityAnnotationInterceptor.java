@@ -28,9 +28,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.harlankuo.hyacinth.wcms.Annotation.Authority;
 import com.harlankuo.hyacinth.wcms.model.SysUser;
-import com.harlankuo.hyacinth.wcms.web.AuthorityType;
-import com.harlankuo.hyacinth.wcms.web.ResultTypeEnum;
-import com.harlankuo.hyacinth.wcms.web.utils.AuthorityHelper;
 import com.harlankuo.hyacinth.wcms.web.utils.SessionHelper;
 
 /**

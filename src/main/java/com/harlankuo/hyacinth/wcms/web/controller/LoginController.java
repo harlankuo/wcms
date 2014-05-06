@@ -10,20 +10,12 @@
 	
 package com.harlankuo.hyacinth.wcms.web.controller;
 
-import java.lang.annotation.Annotation;
-import java.util.Enumeration;
-
 import javax.inject.Inject;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
 
-import org.apache.regexp.recompile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -35,7 +27,7 @@ import com.harlankuo.hyacinth.wcms.exception.BusinessException;
 import com.harlankuo.hyacinth.wcms.exception.SystemException;
 import com.harlankuo.hyacinth.wcms.model.SysUser;
 import com.harlankuo.hyacinth.wcms.service.SysUserService;
-import com.harlankuo.hyacinth.wcms.web.ResultTypeEnum;
+import com.harlankuo.hyacinth.wcms.web.interceptor.ResultTypeEnum;
 import com.harlankuo.hyacinth.wcms.web.utils.SessionHelper;
 
 /**

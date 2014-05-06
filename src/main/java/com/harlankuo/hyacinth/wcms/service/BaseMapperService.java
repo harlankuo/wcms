@@ -12,6 +12,10 @@ package com.harlankuo.hyacinth.wcms.service;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
+import com.harlankuo.hyacinth.wcms.model.mapper.BaseSqlMapper;
+
 /**
  * 类名称：BaseMapperService
  * 类描述：
@@ -23,13 +27,19 @@ import java.util.List;
 
 public interface BaseMapperService<T> {
 	
-    public boolean add(T entity) throws Exception;
+    public boolean add(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception;
     
-    public boolean edit(T entity) throws Exception;
+    public boolean edit(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception;
     
-    public boolean remove(T entity) throws Exception;
+    public boolean remove(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception;
     
-    public T getSingle(T entity) throws Exception;
+    public T getSingle(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception;
 
-    public List<T> getList(T entity) throws Exception;
+    public List<T> getList(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception;
+    
+    public List<T> getPageList(T entity, Class<? extends BaseSqlMapper> mapperClass, int startRow, int rowCount) throws Exception;
+    
+    public List<T> getAllList(Class<? extends BaseSqlMapper> mapperClass) throws Exception;
+    
+    public int count(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception;
 }

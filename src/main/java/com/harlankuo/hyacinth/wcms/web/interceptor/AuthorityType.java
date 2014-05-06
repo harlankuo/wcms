@@ -8,7 +8,7 @@
 * Copyright (c)2014版权所有--harlankuo
 */
 	
-package com.harlankuo.hyacinth.wcms.web;
+package com.harlankuo.hyacinth.wcms.web.interceptor;
 
 /**
  * 类名称：AuthorityType

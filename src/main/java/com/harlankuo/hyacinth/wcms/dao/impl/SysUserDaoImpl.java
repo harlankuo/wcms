@@ -28,9 +28,6 @@ public class SysUserDaoImpl<T extends SysUser> extends BaseMapperDaoImpl<T> impl
 		// TODO Auto-generated constructor stub
 	}
 
-	@Inject
-    private SysUserMapper mapper;
-
 	/**
 	*(non-Javadoc)
 	* @see com.harlankuo.hyacinth.wcms.dao.SysUserDao#Login(com.harlankuo.hyacinth.wcms.model.SysUser)

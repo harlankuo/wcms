@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.RetentionPolicy;
 
-import com.harlankuo.hyacinth.wcms.web.ResultTypeEnum;
+import com.harlankuo.hyacinth.wcms.web.interceptor.ResultTypeEnum;
 
 /**
  * 类名称：Login

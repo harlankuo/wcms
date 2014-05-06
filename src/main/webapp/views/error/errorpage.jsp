@@ -17,7 +17,8 @@
             <tr>  
                 <td>  
                 <img width="220" height="393" src="${ctx}/static/images/common/error.png" style="float: left; padding-right: 20px;" alt="" />  
-                    <%= exception.getMessage()%>  
+                    <%-- <%= exception.getMessage()%>   --%>
+                    <c:out value="${exception.getMessage()}"/>
                     <p style="line-height: 12px; color: #666666; font-family: Tahoma, '宋体'; font-size: 12px; text-align: left;">  
                     <a href="javascript:history.go(-1);">返回</a>!!!  
                     </p>  

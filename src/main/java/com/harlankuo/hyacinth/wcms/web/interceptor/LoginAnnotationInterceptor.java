@@ -21,7 +21,6 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -30,7 +29,6 @@ import com.alibaba.fastjson.JSON;
 import com.harlankuo.hyacinth.wcms.Annotation.Login;
 import com.harlankuo.hyacinth.wcms.entity.ReturnValue;
 import com.harlankuo.hyacinth.wcms.model.SysUser;
-import com.harlankuo.hyacinth.wcms.web.ResultTypeEnum;
 import com.harlankuo.hyacinth.wcms.web.utils.SessionHelper;
 
 /**

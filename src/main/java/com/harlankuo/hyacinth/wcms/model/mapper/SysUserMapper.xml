@@ -37,6 +37,39 @@
     		AND user_flag = #{userFlag,jdbcType=integer}
     	</if>
     </where>
+    order by user_id
+  </select>
+    <select id="getPageList" parameterType="com.harlankuo.hyacinth.wcms.model.SysUser" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_user
+    	<where>
+			<if test="userIsdelete != null ">
+	    		user_isdelete = #{userIsdelete,jdbcType=INTEGER}
+	    	</if>
+	    	<if test="userFlag != null">
+	    		AND user_flag = #{userFlag,jdbcType=INTEGER}
+	    	</if>
+    	</where>
+    order by user_id
+  </select>
+  <select id="getAllList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_user
+    order by user_id
+  </select>
+  <select id="count" parameterType="com.harlankuo.hyacinth.wcms.model.SysUser" resultType="integer">
+    select  count(1)
+    from t_sys_user
+    	<where>
+	    	<if test="userIsdelete != null ">
+	    		user_isdelete = #{userIsdelete,jdbcType=INTEGER}
+	    	</if>
+	    	<if test="userFlag != null">
+	    		AND user_flag = #{userFlag,jdbcType=INTEGER}
+	    	</if>
+    	</where>
   </select>
   <delete id="remove" parameterType="com.harlankuo.hyacinth.wcms.model.SysUser">
     delete from t_sys_user
@@ -53,14 +86,13 @@
 	</where>
   </delete>
   <insert id="add" parameterType="com.harlankuo.hyacinth.wcms.model.SysUser">
-    insert into t_sys_user (user_id, user_name, user_password, 
+      insert into t_sys_user (user_id, user_name, user_password, 
       user_flag, user_createtime, user_isdelete
       )
     values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
       #{userFlag,jdbcType=INTEGER}, #{userCreatetime,jdbcType=TIMESTAMP}, #{userIsdelete,jdbcType=INTEGER}
       )
   </insert>
-
   <update id="edit" parameterType="com.harlankuo.hyacinth.wcms.model.SysUser">
     update t_sys_user
     <set>

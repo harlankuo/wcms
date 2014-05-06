@@ -13,12 +13,12 @@ package com.harlankuo.hyacinth.wcms.service.impl;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import com.harlankuo.hyacinth.wcms.dao.BaseMapperDao;
 import com.harlankuo.hyacinth.wcms.exception.BusinessException;
+import com.harlankuo.hyacinth.wcms.model.mapper.BaseSqlMapper;
 import com.harlankuo.hyacinth.wcms.service.BaseMapperService;
 
 /**
@@ -40,11 +40,12 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	* @see com.harlankuo.hyacinth.wcms.service.BaseMapperService#add(java.lang.Object)
 	*/
 		
-	public boolean add(T entity) throws Exception {
+	public boolean add(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
 			throw new BusinessException("对象参数信息为Empty！");
 		}
+		baseMapperDao.setMapperClass(mapperClass);
 		return baseMapperDao.add(entity);
 	}
 
@@ -53,11 +54,12 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	* @see com.harlankuo.hyacinth.wcms.service.BaseMapperService#edit(java.lang.Object)
 	*/
 		
-	public boolean edit(T entity) throws Exception {
+	public boolean edit(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
 			throw new BusinessException("对象参数信息为Empty！");
 		}
+		baseMapperDao.setMapperClass(mapperClass);
 		return baseMapperDao.edit(entity);
 	}
 
@@ -66,11 +68,12 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	* @see com.harlankuo.hyacinth.wcms.service.BaseMapperService#remove(java.lang.Object)
 	*/
 		
-	public boolean remove(T entity) throws Exception {
+	public boolean remove(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
 			throw new BusinessException("对象参数信息为Empty！");
 		}
+		baseMapperDao.setMapperClass(mapperClass);
 		return baseMapperDao.remove(entity);
 	}
 
@@ -79,11 +82,12 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	* @see com.harlankuo.hyacinth.wcms.service.BaseMapperService#getSingle(java.lang.Object)
 	*/
 		
-	public T getSingle(T entity) throws Exception {
+	public T getSingle(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
 			throw new BusinessException("对象参数信息为Empty！");
 		}
+		baseMapperDao.setMapperClass(mapperClass);
 		return baseMapperDao.getSingle(entity);
 	}
 
@@ -92,12 +96,53 @@ public class BaseMapperServiceImpl<T> implements BaseMapperService<T> {
 	* @see com.harlankuo.hyacinth.wcms.service.BaseMapperService#getList(java.lang.Object)
 	*/
 		
-	public List<T> getList(T entity) throws Exception {
+	public List<T> getList(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception {
 		// TODO Auto-generated method stub
 		if(entity==null){
 			throw new BusinessException("对象参数信息为Empty！");
 		}
+		baseMapperDao.setMapperClass(mapperClass);
 		return baseMapperDao.getList(entity);
+	}
+
+	/**
+	*(non-Javadoc)
+	* @see com.harlankuo.hyacinth.wcms.service.BaseMapperService#getPageList(java.lang.Object, int, int)
+	*/
+		
+	public List<T> getPageList(T entity, Class<? extends BaseSqlMapper> mapperClass, int startRow, int rowCount)
+			throws Exception {
+		// TODO Auto-generated method stub
+		if(entity==null){
+			throw new BusinessException("对象参数信息为Empty！");
+		}
+		baseMapperDao.setMapperClass(mapperClass);
+		return baseMapperDao.getPageList(entity, startRow, rowCount);
+	}
+
+	/**
+	*(non-Javadoc)
+	* @see com.harlankuo.hyacinth.wcms.service.BaseMapperService#getAllList()
+	*/
+		
+	public List<T> getAllList(Class<? extends BaseSqlMapper> mapperClass) throws Exception {
+		// TODO Auto-generated method stub
+		baseMapperDao.setMapperClass(mapperClass);
+		return baseMapperDao.getAllList();
+	}
+
+	/**
+	*(non-Javadoc)
+	* @see com.harlankuo.hyacinth.wcms.service.BaseMapperService#count(java.lang.Object)
+	*/
+		
+	public int count(T entity, Class<? extends BaseSqlMapper> mapperClass) throws Exception {
+		// TODO Auto-generated method stub
+		if(entity==null){
+			throw new BusinessException("对象参数信息为Empty！");
+		}
+		baseMapperDao.setMapperClass(mapperClass);
+		return baseMapperDao.count(entity);
 	}
 
 }

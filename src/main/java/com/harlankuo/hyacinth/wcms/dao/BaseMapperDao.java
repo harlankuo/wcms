@@ -21,4 +21,10 @@ public interface BaseMapperDao<T> {
     public T getSingle(T entity) throws Exception;
 
     public List<T> getList(T entity) throws Exception;
+    
+    public List<T> getPageList(T entity, int startRow, int rowCount) throws Exception;
+    
+    public List<T> getAllList() throws Exception;
+    
+    public int count(T entity) throws Exception;
 }

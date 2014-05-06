@@ -23,7 +23,7 @@
 		<table style="height: 100%; width: 600px; text-align: center;">
 			<tr>
 				<td>
-				<img width="220" height="393" src="${basePath}/images/common/error.png" style="float: left; padding-right: 20px;" alt="" />
+				<img width="220" height="393" src="${ctx}/static/images/common/error.png" style="float: left; padding-right: 20px;" alt="" />
 				<h4 style="color: #FF0000; line-height: 25px; font-size: 20px; text-align: left;">500 Oops! Internal Server Error </h4>
 				<h4 style="color: #FF0000; line-height: 25px; font-size: 20px; text-align: left;">错误提示:</h4>
 				<p style="line-height: 12px; color: #666666; font-family: Tahoma, '宋体'; font-size: 12px; text-align: left;">

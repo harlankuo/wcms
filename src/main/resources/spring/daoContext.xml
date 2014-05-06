@@ -23,11 +23,19 @@
 		<property name="password" value="root" />
 	</bean>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<!-- <property name="configLocation" value="classpath:/mybatis/SqlMapConfig.xml" 
-			/> -->
+		<property name="configLocation" value="classpath:/mybatis/SqlMapConfig.xml" ></property>
 		<property name="dataSource" ref="DataSource" />
 		<property name="mapperLocations"
 			value="classpath*:com/harlankuo/hyacinth/wcms/model/mapper/*Mapper.xml" />
+		<property name="plugins">
+        	<array>
+            	<ref bean="paginationInterceptor"/>
+        	</array>
+    	</property>
+	</bean>
+
+	<bean id="paginationInterceptor" class="com.harlankuo.hyacinth.wcms.utils.pagination.interceptor.PaginationInterceptor">
+	
 	</bean>
 
 	<!-- 使用SqlSessionTemplate -->

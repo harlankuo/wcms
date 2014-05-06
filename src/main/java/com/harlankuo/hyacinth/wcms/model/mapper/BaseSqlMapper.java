@@ -2,6 +2,7 @@ package com.harlankuo.hyacinth.wcms.model.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.dao.DataAccessException;
 
 /**
@@ -26,4 +27,10 @@ public interface BaseSqlMapper<T> extends SqlMapper {
     public T getSingle(T entity) throws DataAccessException;
     
     public List<T> getList(T entity) throws DataAccessException;
+    
+    public List<T> getPageList(T entity, RowBounds rowBounds) throws DataAccessException;
+    
+    public List<T> getAllList() throws DataAccessException;
+    
+    public int count(T entity) throws DataAccessException;
 }

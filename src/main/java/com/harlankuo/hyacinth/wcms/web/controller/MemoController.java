@@ -20,8 +20,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.harlankuo.hyacinth.wcms.Annotation.Authority;
 import com.harlankuo.hyacinth.wcms.Annotation.Login;
-import com.harlankuo.hyacinth.wcms.web.AuthorityType;
-import com.harlankuo.hyacinth.wcms.web.ResultTypeEnum;
+import com.harlankuo.hyacinth.wcms.web.interceptor.AuthorityType;
+import com.harlankuo.hyacinth.wcms.web.interceptor.ResultTypeEnum;
 import com.harlankuo.hyacinth.wcms.web.utils.AjaxResult;
 
 /**

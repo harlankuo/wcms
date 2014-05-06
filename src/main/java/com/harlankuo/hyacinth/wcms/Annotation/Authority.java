@@ -16,8 +16,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.harlankuo.hyacinth.wcms.web.AuthorityType;
-import com.harlankuo.hyacinth.wcms.web.ResultTypeEnum;
+import com.harlankuo.hyacinth.wcms.web.interceptor.AuthorityType;
+import com.harlankuo.hyacinth.wcms.web.interceptor.ResultTypeEnum;
 
 /**
  * 类名称：Authority
