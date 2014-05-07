@@ -6,29 +6,18 @@
 <title>Web内容管理系统</title>
 <%@ include file="/views/common/header.jsp"%>
 <LINK rel=stylesheet type=text/css href="${ctx}/static/css/login.css">
+<LINK rel=stylesheet type=text/css href="${ctx}/static/js/easyui/themes/default/tooltip.css">
+<LINK rel=stylesheet type=text/css href="${ctx}/static/js/easyui/themes/default/validatebox.css">
 <script type="text/javascript">
 	$(function(){
 		$('#form1').form({   
 			url:"login2",
 			onSubmit:function(){
-				var userName=$('#userName').val();
-				var userPassword=$('#userPassword').val();
-				if(userName=='' || userName==null ){
-					$.messager.alert('错误','您输入的用户名不能为空！','info',function(){
-						$('#userName').val();
-						$('#userName').focus();
-						
-					});
-					return false;
-				}
-				if(userPassword=='' || userPassword==null ){
-					$.messager.alert('错误','您输入的密码不能为空！','info',function(){
-						$('#userPassword').val();
-						$('#userPassword').focus();
-						
-					});
-					return false;
-				}
+/* 				var isValid = $(this).form('validate');
+				if (!isValid){
+					$.messager.progress('close');	// 如果表单是无效的则隐藏进度条
+				} */
+				return $(this).form('validate');	// 返回false终止表单提交
 				$.messager.progress({
 					text:'系统正在登录中...'
 				});
@@ -48,9 +37,44 @@
 		    }    
 		});  
 		
-		$('#btn_login').click(function(){
-			//$('#form1').submit();
+		$("#btn_login").click(function(){
+			$('#form1').form('submit');
 		});
+		
+		$('#VerifyCode').click(function(){
+			$(this).hide().attr('src', 'captcha/getCaptcha?' + Math.floor(Math.random()*100) ).fadeIn();  
+		});
+		
+		$.extend($.fn.validatebox.defaults.rules, {    
+			checkCaptchaCode: {    
+		        validator: function(value, param){    
+		            return checkCaptcha(value);
+		        },    
+		        message: '验证码不正确...'
+		    }
+		});  
+		
+		$('input.easyui-validatebox').validatebox('disableValidation')
+        .focus(function () { 
+        	$(this).validatebox('enableValidation');
+        }).blur(function () { 
+        	$(this).validatebox('validate')
+        });
+		
+		function checkCaptcha(captchaCode){
+			var rflag=false;
+			$.ajax("captcha/checkCaptcha",{
+				async:false,
+				data:{txtVerifyCode:captchaCode},
+				//dataType:"json",
+				type:"GET",
+				success:function(returnValue){
+					var data=JSON.parse(returnValue);
+					rflag=data.success;
+				}
+			});
+			return rflag;
+		}
 	});
 </script>
 </head>
@@ -68,25 +92,25 @@
 							<TBODY>
 								<TR>
 									<TD class=listt>用户名：</TD>
-									<TD align=left><INPUT class=inputbg2 value="" tabIndex=1 maxLength=62 type=text name=userName id=userName></TD>
+									<TD align=left><INPUT class="inputbg2 easyui-validatebox" data-options="required:true,validType:'length[4,25]'" maxLength=25 type=text name=userName id=userName></TD>
 								</TR>
 								<TR>
 									<TD class=listt>管理密码：</TD>
-									<TD align=left><INPUT class=inputbg2 tabIndex=1
-										maxLength=25 value="" type=password name=userPassword id="userPassword"></TD>
+									<TD align=left><INPUT class="inputbg2 easyui-validatebox" data-options="required:true,validType:'length[4,25]'"
+										maxLength=25 type=password name=userPassword id="userPassword"></TD>
 								</TR>
 								<TR>
 									<TD class=listt>验证码：</TD>
-									<TD><INPUT class=inputbg tabIndex=1 maxLength=6 align=left type=text name=v_code>
-										<IMG id=VerifyCode class=codepic alt="看不清，换一张 "
-										align=absMiddle src="${ctx}/static/images/login/code_pic.gif"> 
-										<INPUT value=1 type=hidden name=flag>
+									<TD><INPUT id="txtVerifyCode" class="inputbg easyui-validatebox" data-options="required:true,tipPosition:'left',validType:'checkCaptchaCode',invalidMessage:'验证码不正确'" maxLength=5 align=left type=text name=v_code>
+										<IMG id=VerifyCode class=codepic alt="看不清，换一张" align=absMiddle src="captcha/getCaptcha">
 										</TD>
 								</TR>
 								<TR>
 									<TD class=listt></TD>
 									<TD height=39 width=165 align=left>
-										<INPUT src="${ctx}/static/images/login/btn_login.gif" type=image name=btn_login id="btn_login"></TD>
+										<%-- <INPUT src="${ctx}/static/images/login/btn_login.gif" type=image name=btn_login id="btn_login"> --%>
+										<img style="display:inline;" id="btn_login" src="${ctx}/static/images/login/btn_login.gif"/>
+									</TD>
 								</TR>
 							</TBODY>
 						</TABLE>
