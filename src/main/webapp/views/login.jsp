@@ -92,24 +92,24 @@
 							<TBODY>
 								<TR>
 									<TD class=listt>用户名：</TD>
-									<TD align=left><INPUT class="inputbg2 easyui-validatebox" data-options="required:true,validType:'length[4,25]'" maxLength=25 type=text name=userName id=userName></TD>
+									<TD align=left><INPUT class="inputbg2 easyui-validatebox" data-options="required:true,validType:'length[4,25]'" tabindex="1" maxLength=25 type=text name=userName id=userName></TD>
 								</TR>
 								<TR>
 									<TD class=listt>管理密码：</TD>
-									<TD align=left><INPUT class="inputbg2 easyui-validatebox" data-options="required:true,validType:'length[4,25]'"
+									<TD align=left><INPUT class="inputbg2 easyui-validatebox" data-options="required:true,validType:'length[4,25]'" tabindex="2" 
 										maxLength=25 type=password name=userPassword id="userPassword"></TD>
 								</TR>
 								<TR>
 									<TD class=listt>验证码：</TD>
-									<TD><INPUT id="txtVerifyCode" class="inputbg easyui-validatebox" data-options="required:true,tipPosition:'left',validType:'checkCaptchaCode',invalidMessage:'验证码不正确'" maxLength=5 align=left type=text name=v_code>
+									<TD><INPUT id="txtVerifyCode" class="inputbg easyui-validatebox" data-options="required:true,tipPosition:'left',validType:'checkCaptchaCode',invalidMessage:'验证码不正确'" tabindex="3" maxLength=5 align=left type=text name=v_code>
 										<IMG id=VerifyCode class=codepic alt="看不清，换一张" align=absMiddle src="captcha/getCaptcha">
 										</TD>
 								</TR>
 								<TR>
 									<TD class=listt></TD>
 									<TD height=39 width=165 align=left>
-										<%-- <INPUT src="${ctx}/static/images/login/btn_login.gif" type=image name=btn_login id="btn_login"> --%>
-										<img style="display:inline;" id="btn_login" src="${ctx}/static/images/login/btn_login.gif"/>
+										<INPUT src="${ctx}/static/images/login/btn_login.gif" tabindex="4" type=image name=btn_login id="btn_login">
+									<%-- 	<img style="display:inline;" id="btn_login" src="${ctx}/static/images/login/btn_login.gif"/> --%>
 									</TD>
 								</TR>
 							</TBODY>

@@ -31,7 +31,9 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.harlankuo.hyacinth.wcms.model.mapper"/>
         <property name="markerInterface" value="com.harlankuo.hyacinth.wcms.model.mapper.SqlMapper"/> 
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <!-- 在用属性文件时，mybatis的MapperScannerConfigurer类不能使用sqlSessionFactory属性注入，只能通过sqlSessionFactoryBeanName属性注入 -->
+        <!-- <property name="sqlSessionFactory" ref="sqlSessionFactory"/> -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
     
     <!-- 全局异常配置 start -->     
