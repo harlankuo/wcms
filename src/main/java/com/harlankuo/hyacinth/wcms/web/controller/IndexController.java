@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.harlankuo.hyacinth.wcms.model.SysUser;
 import com.harlankuo.hyacinth.wcms.pagination.ViewPage;
 import com.harlankuo.hyacinth.wcms.pagination.ViewPageHelper;
-import com.harlankuo.hyacinth.wcms.web.Annotation.Login;
+import com.harlankuo.hyacinth.wcms.web.annotation.Login;
 import com.harlankuo.hyacinth.wcms.web.interceptor.ResultTypeEnum;
 import com.harlankuo.hyacinth.wcms.web.pagination.SysUserPagination;
 import com.harlankuo.hyacinth.wcms.web.utils.SessionHelper;

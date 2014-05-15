@@ -27,7 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.harlankuo.hyacinth.wcms.model.SysUser;
-import com.harlankuo.hyacinth.wcms.web.Annotation.Authority;
+import com.harlankuo.hyacinth.wcms.web.annotation.Authority;
 import com.harlankuo.hyacinth.wcms.web.utils.SessionHelper;
 
 /**
@@ -115,6 +115,7 @@ public class AuthorityAnnotationInterceptor extends HandlerInterceptorAdapter {
 		//SysUser sysUser = (SysUser) session.getAttribute(SessionHelper.UserHandler);
 		boolean aflag = false;
 
+		//授权判断
 		//for (AuthorityType at : authority.authorityTypes()) {
 			/*if (AuthorityHelper.hasAuthority(at.getIndex(),
 					sysUser.getRightContent()) == true) {

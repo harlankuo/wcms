@@ -12,7 +12,7 @@ package com.harlankuo.hyacinth.wcms.utils;
 
 /**
  * 类名称：CaptchaUtils
- * 类描述：
+ * 类描述：验证码辅肋类
  * 创建人：harlankuo
  * 修改人：harlankuo
  * 修改时间：2014年5月6日 下午5:50:57

@@ -34,7 +34,7 @@
 	<!--不拦截静态的文件，如jpg,js,css -->
 	<mvc:resources mapping="/static/**" location="/static/" />
 
-	<!-- 配置登录注解interceptor, 从而过滤所有的spring-mvc方法 -->
+	<!-- 配置登录注解interceptor, 从而过滤所有标注登录注解的spring-mvc方法 -->
 	<mvc:interceptors>
 		<!-- <mvc:interceptor> <mvc:mapping path="/views/*"/> <bean class=""></bean> 
 			</mvc:interceptor> -->
