@@ -14,8 +14,17 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<dependencies>
-		<dependency>
+    <repositories>
+        <!--mybatis依赖仓库配置：-->
+        <repository>
+            <id>mybatis-snapshot</id>
+            <name>MyBatis Snapshot Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+    <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
@@ -272,7 +281,20 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<plugins>
+        <!--处理资源文件【资源文件最好放在resources下】-->
+        <resources>
+            <!--处理在src/main/java下的资源文件不copy问题-->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
