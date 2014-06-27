@@ -38,7 +38,7 @@
 		});  
 		
 		$("#btn_login").click(function(){
-			$('#form1').form('submit');
+			//$('#form1').form('submit');
 		});
 		
 		$('#VerifyCode').click(function(){
